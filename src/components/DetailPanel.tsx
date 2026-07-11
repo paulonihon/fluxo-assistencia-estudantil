@@ -85,6 +85,7 @@ function ConteudoNo({ no }: { no: FlowNodeData }) {
 export function DetailPanel() {
   const selectedNodeId = useAppStore((s) => s.selectedNodeId)
   const clearSelection = useAppStore((s) => s.clearSelection)
+  const tourAtivo = useAppStore((s) => s.tour.ativo)
   const no = data.nos.find((n) => n.id === selectedNodeId)
   if (!no) return null
 
@@ -105,7 +106,9 @@ export function DetailPanel() {
         <ConteudoNo no={no} />
       </aside>
       {/* mobile: bottom sheet */}
-      <div className="md:hidden absolute inset-x-0 bottom-0 z-20 max-h-[55vh] overflow-y-auto rounded-t-2xl bg-white shadow-[0_-8px_24px_rgba(0,0,0,0.18)]">
+      <div
+        className={`md:hidden absolute inset-x-0 z-20 overflow-y-auto rounded-t-2xl bg-white shadow-[0_-8px_24px_rgba(0,0,0,0.18)] ${tourAtivo ? 'bottom-[132px] max-h-[38vh]' : 'bottom-0 max-h-[55vh]'}`}
+      >
         <div className="sticky top-0 flex items-center justify-between bg-white/95 px-4 pt-2 pb-1">
           <div className="mx-auto h-1.5 w-10 rounded-full bg-gray-300" />
           <button
