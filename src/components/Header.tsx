@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useReactFlow } from '@xyflow/react'
 import { useAppStore } from '../store'
 import { LaneFilter } from './LaneFilter'
@@ -50,6 +51,12 @@ export function Header() {
         >
           ⛶
         </button>
+        <Link
+          to="/sobre"
+          className="shrink-0 rounded-xl border border-gray-300 px-3.5 py-2 text-[13px] font-semibold text-gray-700 hover:bg-gray-50"
+        >
+          Sobre
+        </Link>
       </div>
       <LaneFilter />
     </header>

@@ -1,3 +1,4 @@
+import { Route, Routes } from 'react-router-dom'
 import { ReactFlowProvider } from '@xyflow/react'
 import { FlowCanvas } from './components/FlowCanvas'
 import { DetailPanel } from './components/DetailPanel'
@@ -6,8 +7,9 @@ import { Header } from './components/Header'
 import { Glossary } from './components/Glossary'
 import { NarrowBanner } from './components/NarrowBanner'
 import { Welcome } from './components/Welcome'
+import { Sobre } from './pages/Sobre'
 
-export default function App() {
+function FlowPage() {
   return (
     <ReactFlowProvider>
       <div className="flex h-full flex-col">
@@ -22,5 +24,14 @@ export default function App() {
         <Glossary />
       </div>
     </ReactFlowProvider>
+  )
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<FlowPage />} />
+      <Route path="/sobre" element={<Sobre />} />
+    </Routes>
   )
 }
