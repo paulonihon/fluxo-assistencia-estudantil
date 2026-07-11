@@ -25,7 +25,10 @@ export function GuidedTour() {
     (id: string) => {
       const c = centroDoNo(id)
       const mobile = window.innerWidth < 768
-      setCenter(c.x, c.y, { zoom: mobile ? 1.3 : 1.1, duration: 600 })
+      const zoom = mobile ? 1.3 : 1.1
+      // no mobile, desloca o alvo para a área visível acima do bottom sheet + card da trilha
+      const offsetY = mobile ? (window.innerHeight * 0.27) / zoom : 0
+      setCenter(c.x, c.y + offsetY, { zoom, duration: 600 })
     },
     [setCenter],
   )
