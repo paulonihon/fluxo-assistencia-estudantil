@@ -3,6 +3,7 @@ import { useReactFlow } from '@xyflow/react'
 import flow from '../data/flow.json'
 import type { FlowData } from '../types'
 import { NODE_SIZE } from '../lib/flowModel'
+import { RAIA_VISUAL } from '../lib/raias'
 import { advance, getOutgoing, isGateway } from '../lib/tour'
 import { useAppStore } from '../store'
 
@@ -25,10 +26,14 @@ export function GuidedTour() {
     (id: string) => {
       const c = centroDoNo(id)
       const mobile = window.innerWidth < 768
-      const zoom = mobile ? 1.3 : 1.1
-      // no mobile, desloca o alvo para a área visível acima do bottom sheet + card da trilha
+      // cada etapa aparece em tamanho grande na tela
+      const zoom = mobile ? 1.9 : 1.6
+      // desloca o alvo para a área visível (acima do bottom sheet no mobile, à esquerda do painel no desktop)
       const offsetY = mobile ? (window.innerHeight * 0.27) / zoom : 0
-      setCenter(c.x, c.y + offsetY, { zoom, duration: 600 })
+      const offsetX = mobile ? 0 : 190 / zoom
+      // easing suave (easeInOutCubic) e duração maior para a câmera deslizar com calma
+      const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
+      setCenter(c.x + offsetX, c.y + offsetY, { zoom, duration: 1100, ease: easeInOutCubic })
     },
     [setCenter],
   )
@@ -43,6 +48,7 @@ export function GuidedTour() {
   if (!tour.ativo || !tour.atual) return null
 
   const atual = data.nos.find((n) => n.id === tour.atual)!
+  const visual = RAIA_VISUAL[atual.raia]
   const noGateway = isGateway(data, atual.id)
   const fim = getOutgoing(data, atual.id).length === 0
   const passo = tour.historico.length + 1
@@ -71,13 +77,22 @@ export function GuidedTour() {
 
   return (
     <div className="absolute inset-x-0 bottom-0 z-30 flex justify-center pointer-events-none">
-      <div className="pointer-events-auto m-3 w-full max-w-[560px] rounded-2xl border border-gray-200 bg-white p-3 shadow-2xl">
+      <div className="pointer-events-auto m-3 w-full max-w-[600px] rounded-2xl border border-[#E2E8E5] bg-white/95 p-3.5 shadow-2xl backdrop-blur">
         <div className="flex items-center justify-between gap-2">
           <div className="min-w-0">
-            <div className="text-[11px] font-bold uppercase tracking-wide text-emerald-700">
-              Trilha guiada · passo {passo}
+            <div className="flex items-center gap-2">
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide"
+                style={{ background: visual.corSuave, color: visual.corTexto }}
+              >
+                <span className="h-1.5 w-1.5 rounded-full" style={{ background: visual.cor }} />
+                {visual.nome}
+              </span>
+              <span className="text-[11px] font-semibold text-gray-400">passo {passo}</span>
             </div>
-            <div className="truncate text-[14px] font-semibold text-gray-900">{atual.rotulo}</div>
+            <div className="mt-0.5 truncate font-display text-[15px] font-semibold text-[#1C2B24]">
+              {atual.rotulo}
+            </div>
           </div>
           <button
             type="button"
@@ -87,10 +102,10 @@ export function GuidedTour() {
             Sair
           </button>
         </div>
-        <div className="mt-2 flex gap-2">
+        <div className="mt-2.5 flex gap-2">
           <button
             type="button"
-            className="rounded-lg border border-gray-300 px-3 py-1.5 text-[13px] font-medium text-gray-700 disabled:opacity-40"
+            className="rounded-xl border border-gray-300 px-3.5 py-2 text-[13px] font-medium text-gray-700 disabled:opacity-40"
             onClick={anterior}
             disabled={tour.historico.length === 0}
           >
@@ -99,17 +114,17 @@ export function GuidedTour() {
           {fim ? (
             <button
               type="button"
-              className="flex-1 rounded-lg bg-emerald-700 px-3 py-1.5 text-[13px] font-semibold text-white"
+              className="flex-1 rounded-xl bg-emerald-700 px-3.5 py-2 text-[14px] font-semibold text-white hover:bg-emerald-800"
               onClick={recomecar}
             >
-              Recomeçar
+              Recomeçar do início
             </button>
           ) : noGateway ? (
             atual.ramificacoes?.map((r) => (
               <button
                 key={r.rotulo}
                 type="button"
-                className={`flex-1 rounded-lg px-3 py-1.5 text-[13px] font-semibold text-white ${r.rotulo === 'Sim' ? 'bg-emerald-600' : 'bg-red-600'}`}
+                className={`flex-1 rounded-xl px-3.5 py-2 text-[14px] font-semibold text-white ${r.rotulo === 'Sim' ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-red-500 hover:bg-red-600'}`}
                 onClick={() => irPara(r.para)}
                 title={r.consequencia}
               >
@@ -119,7 +134,7 @@ export function GuidedTour() {
           ) : (
             <button
               type="button"
-              className="flex-1 rounded-lg bg-gray-900 px-3 py-1.5 text-[13px] font-semibold text-white"
+              className="flex-1 rounded-xl bg-[#0E4429] px-3.5 py-2 text-[14px] font-semibold text-white hover:bg-[#14532D]"
               onClick={proximo}
             >
               Próximo →
@@ -127,7 +142,9 @@ export function GuidedTour() {
           )}
         </div>
         {noGateway ? (
-          <div className="mt-1.5 text-[12px] text-gray-500">Escolha um caminho para continuar.</div>
+          <div className="mt-1.5 text-[12px] text-gray-500">
+            Este é um ponto de decisão: escolha um caminho para revelar a próxima etapa.
+          </div>
         ) : null}
       </div>
     </div>

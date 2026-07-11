@@ -21,9 +21,10 @@ export function FlowEdge({
     targetY,
     sourcePosition,
     targetPosition,
-    borderRadius: 8,
+    borderRadius: 14,
   })
   const retorno = data?.tipo === 'retorno'
+  const sim = label === 'Sim'
   return (
     <>
       <BaseEdge
@@ -31,20 +32,17 @@ export function FlowEdge({
         path={path}
         markerEnd={markerEnd}
         style={{
-          stroke: retorno ? '#E53935' : '#212121',
-          strokeWidth: 2,
-          strokeDasharray: retorno ? '7 5' : undefined,
+          stroke: retorno ? '#F87171' : '#64748B',
+          strokeWidth: 1.75,
+          strokeDasharray: retorno ? '6 5' : undefined,
           ...style,
         }}
       />
       {label ? (
         <EdgeLabelRenderer>
           <div
-            className="absolute rounded bg-white/90 px-1 text-[12px] font-medium pointer-events-none"
-            style={{
-              transform: `translate(-50%,-50%) translate(${labelX}px,${labelY}px)`,
-              color: retorno ? '#C62828' : '#212121',
-            }}
+            className={`absolute rounded-full border px-2 py-0.5 text-[11px] font-semibold pointer-events-none ${sim ? 'bg-emerald-50 border-emerald-200 text-emerald-800' : 'bg-red-50 border-red-200 text-red-700'}`}
+            style={{ transform: `translate(-50%,-50%) translate(${labelX}px,${labelY}px)`, opacity: (style as React.CSSProperties)?.opacity }}
           >
             {label as string}
           </div>

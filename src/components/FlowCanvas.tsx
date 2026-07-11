@@ -1,4 +1,4 @@
-import { ReactFlow, Background, Controls, MiniMap, MarkerType } from '@xyflow/react'
+import { ReactFlow, Background, BackgroundVariant, Controls, MiniMap, MarkerType } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
 import { useMemo } from 'react'
 import flow from '../data/flow.json'
@@ -32,9 +32,9 @@ export function FlowCanvas() {
         ...e,
         markerEnd: {
           type: MarkerType.ArrowClosed,
-          color: e.data?.tipo === 'retorno' ? '#E53935' : '#212121',
-          width: 18,
-          height: 18,
+          color: e.data?.tipo === 'retorno' ? '#F87171' : '#64748B',
+          width: 16,
+          height: 16,
         },
       })),
     [],
@@ -45,41 +45,64 @@ export function FlowCanvas() {
       ? selectedNodeId
       : null
 
-  const { dimNodes, highlightEdges } = useMemo(() => {
-    // no modo trilha, esmaece tudo menos o nó atual
-    if (tour.ativo && tour.atual) {
-      const dim = new Set(data.nos.filter((n) => n.id !== tour.atual).map((n) => n.id))
-      return { dimNodes: dim, highlightEdges: new Set<string>() }
-    }
-    return computeDimming(data, laneFilter, selectedGatewayId)
-  }, [laneFilter, selectedGatewayId, tour.ativo, tour.atual])
+  // revelação progressiva: na trilha, o percorrido fica visível e o futuro vira fantasma
+  const revelados = useMemo(() => {
+    if (!tour.ativo || !tour.atual) return null
+    return new Set([...tour.historico, tour.atual])
+  }, [tour.ativo, tour.atual, tour.historico])
+
+  const { dimNodes, highlightEdges } = useMemo(
+    () => computeDimming(data, laneFilter, selectedGatewayId),
+    [laneFilter, selectedGatewayId],
+  )
+
+  const ultimaTransicao = useMemo(() => {
+    if (!revelados || tour.historico.length === 0) return null
+    return { de: tour.historico[tour.historico.length - 1], para: tour.atual }
+  }, [revelados, tour.historico, tour.atual])
 
   const temDestaque = highlightEdges.size > 0
 
   const nodes = useMemo(
     () =>
-      baseNodes.map((n) =>
-        n.type === 'lane'
-          ? n
-          : {
-              ...n,
-              selected: n.id === selectedNodeId,
-              style: dimNodes.has(n.id) ? { opacity: 0.18, transition: 'opacity 0.3s' } : { transition: 'opacity 0.3s' },
-            },
-      ),
-    [baseNodes, dimNodes, selectedNodeId],
+      baseNodes.map((n) => {
+        if (n.type === 'lane') return n
+        if (revelados) {
+          const fantasma = !revelados.has(n.id)
+          return {
+            ...n,
+            selected: n.id === tour.atual,
+            style: { opacity: fantasma ? 0.07 : 1, transition: 'opacity 0.45s' },
+          }
+        }
+        return {
+          ...n,
+          selected: n.id === selectedNodeId,
+          style: dimNodes.has(n.id)
+            ? { opacity: 0.15, transition: 'opacity 0.3s' }
+            : { transition: 'opacity 0.3s' },
+        }
+      }),
+    [baseNodes, dimNodes, selectedNodeId, revelados, tour.atual],
   )
 
   const edges = useMemo(
     () =>
       baseEdges.map((e) => {
+        if (revelados) {
+          const visivel = revelados.has(e.source) && revelados.has(e.target)
+          const recemPercorrida =
+            ultimaTransicao && e.source === ultimaTransicao.de && e.target === ultimaTransicao.para
+          if (recemPercorrida) return { ...e, animated: true, style: { strokeWidth: 2.5, opacity: 1 } }
+          return { ...e, style: { opacity: visivel ? 0.85 : 0.04, transition: 'opacity 0.45s' } }
+        }
         if (highlightEdges.has(e.id)) {
-          return { ...e, animated: true, style: { strokeWidth: 3.5 } }
+          return { ...e, animated: true, style: { strokeWidth: 3 } }
         }
         const esmaecida = temDestaque || dimNodes.has(e.source) || dimNodes.has(e.target)
-        return esmaecida ? { ...e, style: { opacity: 0.15 } } : e
+        return esmaecida ? { ...e, style: { opacity: 0.12 } } : e
       }),
-    [baseEdges, highlightEdges, dimNodes, temDestaque],
+    [baseEdges, highlightEdges, dimNodes, temDestaque, revelados, ultimaTransicao],
   )
 
   return (
@@ -89,8 +112,12 @@ export function FlowCanvas() {
       nodeTypes={nodeTypes}
       edgeTypes={edgeTypes}
       fitView
+      fitViewOptions={{ padding: 0.06 }}
       minZoom={0.15}
       maxZoom={4}
+      zoomOnScroll={false}
+      panOnScroll
+      zoomOnPinch
       proOptions={{ hideAttribution: true }}
       nodesConnectable={false}
       elementsSelectable
@@ -99,9 +126,9 @@ export function FlowCanvas() {
       }}
       onPaneClick={() => clearSelection()}
     >
-      <Background color="#CFD8DC" />
+      <Background variant={BackgroundVariant.Dots} color="#E8ECE9" gap={22} size={1.5} />
       <Controls showInteractive={false} position="bottom-left" />
-      {isDesktop() && <MiniMap pannable zoomable position="bottom-right" />}
+      {isDesktop() && <MiniMap pannable zoomable position="bottom-right" nodeColor="#CBD5D1" maskColor="rgba(250,250,248,0.7)" />}
     </ReactFlow>
   )
 }

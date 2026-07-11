@@ -5,6 +5,7 @@ import { GuidedTour } from './components/GuidedTour'
 import { Header } from './components/Header'
 import { Glossary } from './components/Glossary'
 import { NarrowBanner } from './components/NarrowBanner'
+import { Welcome } from './components/Welcome'
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <FlowCanvas />
           <DetailPanel />
           <GuidedTour />
+          <Welcome />
         </div>
         <Glossary />
       </div>

@@ -11,10 +11,10 @@ export const LANE_BOUNDS: Record<string, { y: number; height: number }> = {
 export const CANVAS_WIDTH = 1550
 
 export const NODE_SIZE: Record<string, { w: number; h: number }> = {
-  tarefa: { w: 190, h: 64 },
-  gateway: { w: 64, h: 64 },
-  evento_inicio: { w: 44, h: 44 },
-  evento_fim: { w: 44, h: 44 },
+  tarefa: { w: 200, h: 72 },
+  gateway: { w: 72, h: 72 },
+  evento_inicio: { w: 48, h: 48 },
+  evento_fim: { w: 48, h: 48 },
 }
 
 function centro(no: FlowNodeData) {
