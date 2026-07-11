@@ -23,7 +23,7 @@ export function LaneBackground({ data }: NodeProps) {
     >
       <button
         type="button"
-        className="pointer-events-auto absolute left-2 top-2 flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold shadow-sm transition-colors"
+        className="pointer-events-auto absolute left-3 top-3 flex items-center gap-2 rounded-full border px-4 py-1.5 text-[16px] font-bold shadow-sm transition-colors"
         style={{
           background: ativa ? visual.cor : '#FFFFFF',
           borderColor: ativa ? visual.cor : '#E2E8E5',
@@ -35,7 +35,7 @@ export function LaneBackground({ data }: NodeProps) {
         }}
         title={data.nome as string}
       >
-        <span className="h-2 w-2 rounded-full" style={{ background: ativa ? '#FFFFFF' : visual.cor }} />
+        <span className="h-2.5 w-2.5 rounded-full" style={{ background: ativa ? '#FFFFFF' : visual.cor }} />
         {visual.nome}
       </button>
     </div>
