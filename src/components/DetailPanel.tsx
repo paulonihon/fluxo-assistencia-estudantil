@@ -99,9 +99,12 @@ export function DetailPanel() {
   return (
     <>
       {/* desktop: painel lateral direito */}
-      <aside className="hidden md:flex flex-col absolute right-0 top-0 bottom-0 w-[400px] bg-white border-l border-[#E2E8E5] shadow-xl z-20 overflow-y-auto">
+      <aside className="hidden md:flex flex-col absolute right-0 top-0 bottom-0 w-[400px] bg-white shadow-2xl ring-1 ring-black/5 z-20 overflow-y-auto">
         <div className="sticky top-0 z-10 bg-white/95 backdrop-blur">
-          <div className="h-1.5 w-full" style={{ background: visual.cor }} />
+          <div
+            className="h-1.5 w-full"
+            style={{ background: `linear-gradient(90deg, ${visual.cor}, ${visual.cor}99)` }}
+          />
           <div className="flex justify-end px-2 pt-2">
             <button
               type="button"
@@ -120,7 +123,10 @@ export function DetailPanel() {
         className={`md:hidden absolute inset-x-0 z-20 overflow-y-auto rounded-t-3xl bg-white shadow-[0_-8px_24px_rgba(15,40,30,0.16)] ${tourAtivo ? 'bottom-[148px] max-h-[36vh]' : 'bottom-0 max-h-[55vh]'}`}
       >
         <div className="sticky top-0 z-10 bg-white/95 backdrop-blur">
-          <div className="h-1.5 w-full rounded-t-3xl" style={{ background: visual.cor }} />
+          <div
+            className="h-1.5 w-full rounded-t-3xl"
+            style={{ background: `linear-gradient(90deg, ${visual.cor}, ${visual.cor}99)` }}
+          />
           <div className="flex items-center justify-between px-4 pt-1.5 pb-1">
             <div className="mx-auto h-1.5 w-10 rounded-full bg-gray-200" />
             <button

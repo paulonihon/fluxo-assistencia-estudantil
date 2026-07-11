@@ -1,4 +1,4 @@
-import { ReactFlow, Background, BackgroundVariant, Controls, MiniMap, MarkerType } from '@xyflow/react'
+import { ReactFlow, Background, BackgroundVariant, Controls, MarkerType } from '@xyflow/react'
 import '@xyflow/react/dist/style.css'
 import { useMemo } from 'react'
 import flow from '../data/flow.json'
@@ -15,8 +15,6 @@ import { useAppStore } from '../store'
 const data = flow as FlowData
 const nodeTypes = { task: TaskNode, gateway: GatewayNode, event: EventNode, lane: LaneBackground }
 const edgeTypes = { flow: FlowEdge }
-
-const isDesktop = () => window.matchMedia('(min-width: 768px)').matches
 
 export function FlowCanvas() {
   const select = useAppStore((s) => s.select)
@@ -126,9 +124,8 @@ export function FlowCanvas() {
       }}
       onPaneClick={() => clearSelection()}
     >
-      <Background variant={BackgroundVariant.Dots} color="#E8ECE9" gap={22} size={1.5} />
+      <Background variant={BackgroundVariant.Dots} color="#E3E9E5" gap={24} size={1.25} />
       <Controls showInteractive={false} position="bottom-left" />
-      {isDesktop() && <MiniMap pannable zoomable position="bottom-right" nodeColor="#CBD5D1" maskColor="rgba(250,250,248,0.7)" />}
     </ReactFlow>
   )
 }

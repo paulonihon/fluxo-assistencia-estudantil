@@ -4,19 +4,26 @@ import { NodeHandles } from './NodeHandles'
 export function EventNode({ data, selected }: NodeProps) {
   const inicio = data.tipo === 'evento_inicio'
   return (
-    <div className="relative w-[48px] h-[48px] cursor-pointer">
+    <div className="relative h-[48px] w-[48px] cursor-pointer">
       <NodeHandles />
       <div
-        className={`flex h-full w-full items-center justify-center rounded-full text-[16px] font-bold text-white transition-shadow ${selected ? 'shadow-lg' : 'shadow-sm'}`}
+        className={`flex h-full w-full items-center justify-center rounded-full text-[15px] font-bold text-white transition-shadow ${
+          inicio
+            ? 'bg-gradient-to-br from-emerald-500 to-emerald-700'
+            : 'bg-gradient-to-br from-red-500 to-red-700'
+        }`}
         style={{
-          background: inicio ? '#059669' : '#DC2626',
-          boxShadow: selected ? `0 0 0 4px ${inicio ? '#D1FAE5' : '#FEE2E2'}` : undefined,
+          boxShadow: selected
+            ? `0 0 0 4px ${inicio ? '#D1FAE5' : '#FEE2E2'}, 0 8px 20px rgba(15,40,30,0.2)`
+            : '0 2px 8px rgba(15,40,30,0.18)',
         }}
       >
         {inicio ? '▶' : '■'}
       </div>
       <div
-        className={`absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border px-2 py-0.5 text-[11px] font-semibold ${inicio ? 'bg-emerald-50 border-emerald-200 text-emerald-800' : 'bg-red-50 border-red-200 text-red-800'}`}
+        className={`absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-2.5 py-0.5 text-[11px] font-semibold shadow-sm ring-1 ${
+          inicio ? 'text-emerald-800 ring-emerald-200' : 'text-red-800 ring-red-200'
+        }`}
       >
         {data.rotulo as string}
       </div>

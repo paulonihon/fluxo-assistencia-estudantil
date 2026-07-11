@@ -6,20 +6,21 @@ export function TaskNode({ data, selected }: NodeProps) {
   const visual = RAIA_VISUAL[data.raia as string]
   return (
     <div
-      className={`w-[200px] min-h-[72px] flex flex-col justify-center rounded-2xl bg-white px-3.5 py-2.5 text-left cursor-pointer transition-shadow ${selected ? 'shadow-lg' : 'shadow-[0_1px_4px_rgba(15,40,30,0.10)]'}`}
+      className="flex min-h-[72px] w-[200px] cursor-pointer flex-col justify-center rounded-2xl bg-gradient-to-b from-white to-[#FBFCFB] px-4 py-3 text-left transition-shadow"
       style={{
-        border: `1.5px solid ${selected ? visual.cor : '#E2E8E5'}`,
-        boxShadow: selected ? `0 0 0 4px ${visual.corSuave}, 0 8px 20px rgba(15,40,30,0.14)` : undefined,
+        boxShadow: selected
+          ? `inset 0 0 0 1.5px ${visual.cor}, 0 0 0 4px ${visual.corSuave}, 0 12px 28px rgba(15,40,30,0.16)`
+          : 'inset 0 0 0 1px #E4E9E6, 0 1px 2px rgba(15,40,30,0.05), 0 4px 12px rgba(15,40,30,0.06)',
       }}
     >
       <NodeHandles />
-      <div className="mb-1 flex items-center gap-1.5">
+      <div className="mb-1.5 flex items-center gap-1.5">
         <span className="h-2 w-2 rounded-full" style={{ background: visual.cor }} />
-        <span className="text-[10px] font-semibold uppercase tracking-wide" style={{ color: visual.corTexto }}>
+        <span className="text-[10px] font-semibold uppercase tracking-wider" style={{ color: visual.corTexto }}>
           {visual.nome}
         </span>
       </div>
-      <div className="text-[13.5px] font-semibold leading-snug text-[#1C2B24]">{data.rotulo as string}</div>
+      <div className="text-[13.5px] font-semibold leading-snug text-[#14201A]">{data.rotulo as string}</div>
     </div>
   )
 }

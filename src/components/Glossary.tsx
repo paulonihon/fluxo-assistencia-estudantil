@@ -37,9 +37,10 @@ export function Glossary() {
       onClick={() => setAberto(false)}
     >
       <div
-        className="flex h-[85vh] md:h-[78vh] w-full md:w-[840px] md:max-w-[92vw] flex-col rounded-t-2xl md:rounded-2xl bg-white shadow-2xl"
+        className="flex h-[85vh] md:h-[78vh] w-full md:w-[840px] md:max-w-[92vw] flex-col overflow-hidden rounded-t-3xl md:rounded-3xl bg-white shadow-2xl ring-1 ring-black/5"
         onClick={(e) => e.stopPropagation()}
       >
+        <div className="h-1.5 w-full shrink-0 bg-gradient-to-r from-emerald-700 via-emerald-500 to-emerald-700" />
         <div className="flex items-center justify-between border-b border-gray-200 px-4 md:px-6 py-3.5">
           <div className="font-display text-[18px] md:text-[20px] font-semibold text-[#1C2B24]">Glossário</div>
           <button

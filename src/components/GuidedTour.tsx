@@ -77,7 +77,7 @@ export function GuidedTour() {
 
   return (
     <div className="absolute inset-x-0 bottom-0 z-30 flex justify-center pointer-events-none">
-      <div className="pointer-events-auto m-3 w-full max-w-[600px] rounded-2xl border border-[#E2E8E5] bg-white/95 p-3.5 shadow-2xl backdrop-blur">
+      <div className="pointer-events-auto m-4 w-full max-w-[600px] rounded-2xl bg-white/95 p-4 shadow-2xl ring-1 ring-black/5 backdrop-blur-md">
         <div className="flex items-center justify-between gap-2">
           <div className="min-w-0">
             <div className="flex items-center gap-2">
@@ -102,10 +102,10 @@ export function GuidedTour() {
             Sair
           </button>
         </div>
-        <div className="mt-2.5 flex gap-2">
+        <div className="mt-3 flex gap-2.5">
           <button
             type="button"
-            className="rounded-xl border border-gray-300 px-3.5 py-2 text-[13px] font-medium text-gray-700 disabled:opacity-40"
+            className="inline-flex h-11 items-center rounded-xl bg-white px-4 text-[13px] font-medium text-gray-700 shadow-sm ring-1 ring-gray-200 transition-colors hover:bg-gray-50 disabled:opacity-40"
             onClick={anterior}
             disabled={tour.historico.length === 0}
           >
@@ -114,7 +114,7 @@ export function GuidedTour() {
           {fim ? (
             <button
               type="button"
-              className="flex-1 rounded-xl bg-emerald-700 px-3.5 py-2 text-[14px] font-semibold text-white hover:bg-emerald-800"
+              className="h-11 flex-1 rounded-xl bg-gradient-to-b from-emerald-800 to-emerald-950 px-4 text-[14px] font-semibold text-white shadow-md shadow-emerald-900/20 ring-1 ring-emerald-950/30 transition-all hover:brightness-110"
               onClick={recomecar}
             >
               Recomeçar do início
@@ -124,7 +124,11 @@ export function GuidedTour() {
               <button
                 key={r.rotulo}
                 type="button"
-                className={`flex-1 rounded-xl px-3.5 py-2 text-[14px] font-semibold text-white ${r.rotulo === 'Sim' ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-red-500 hover:bg-red-600'}`}
+                className={`h-11 flex-1 rounded-xl px-4 text-[14px] font-semibold text-white shadow-md ring-1 transition-all hover:brightness-110 ${
+                  r.rotulo === 'Sim'
+                    ? 'bg-gradient-to-b from-emerald-600 to-emerald-800 shadow-emerald-900/20 ring-emerald-900/30'
+                    : 'bg-gradient-to-b from-red-500 to-red-700 shadow-red-900/20 ring-red-900/30'
+                }`}
                 onClick={() => irPara(r.para)}
                 title={r.consequencia}
               >
@@ -134,7 +138,7 @@ export function GuidedTour() {
           ) : (
             <button
               type="button"
-              className="flex-1 rounded-xl bg-[#0E4429] px-3.5 py-2 text-[14px] font-semibold text-white hover:bg-[#14532D]"
+              className="h-11 flex-1 rounded-xl bg-gradient-to-b from-emerald-800 to-emerald-950 px-4 text-[14px] font-semibold text-white shadow-md shadow-emerald-900/20 ring-1 ring-emerald-950/30 transition-all hover:brightness-110"
               onClick={proximo}
             >
               Próximo →

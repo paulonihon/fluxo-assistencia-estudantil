@@ -10,10 +10,14 @@ export function LaneFilter() {
   const setLaneFilter = useAppStore((s) => s.setLaneFilter)
 
   return (
-    <div className="flex gap-1.5 overflow-x-auto px-3 py-2 [scrollbar-width:none] md:px-4">
+    <div className="flex gap-2 overflow-x-auto px-4 pb-3 pt-0.5 [scrollbar-width:none] md:px-6">
       <button
         type="button"
-        className={`shrink-0 rounded-full border px-3 py-1 text-[12px] font-semibold ${laneFilter === null ? 'border-[#0E4429] bg-[#0E4429] text-white' : 'border-gray-300 bg-white text-gray-600'}`}
+        className={`inline-flex h-8 shrink-0 items-center rounded-full px-3.5 text-[12px] font-semibold transition-all ${
+          laneFilter === null
+            ? 'bg-gradient-to-b from-emerald-800 to-emerald-950 text-white shadow-sm ring-1 ring-emerald-950/30'
+            : 'bg-white text-gray-600 shadow-sm ring-1 ring-gray-200 hover:ring-gray-300'
+        }`}
         onClick={() => setLaneFilter(null)}
       >
         Todos os atores
@@ -25,11 +29,14 @@ export function LaneFilter() {
           <button
             key={r.id}
             type="button"
-            className="flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1 text-[12px] font-semibold transition-colors"
+            className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-[12px] font-semibold shadow-sm ring-1 transition-all"
             style={{
               background: ativa ? v.cor : '#FFFFFF',
-              borderColor: ativa ? v.cor : '#D1D5DB',
               color: ativa ? '#FFFFFF' : v.corTexto,
+              // ring via boxShadow para poder usar a cor do ator
+              boxShadow: ativa
+                ? `inset 0 0 0 1px ${v.cor}, 0 1px 2px rgba(0,0,0,0.06)`
+                : 'inset 0 0 0 1px #E5E7EB, 0 1px 2px rgba(0,0,0,0.04)',
             }}
             onClick={() => setLaneFilter(ativa ? null : r.id)}
             title={r.nome}

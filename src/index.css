@@ -4,3 +4,27 @@
 
 html, body, #root { height: 100%; margin: 0; overscroll-behavior: none; }
 body { font-family: 'Inter', system-ui, sans-serif; background: #FAFAF8; color: #1C2B24; }
+
+/* fundo do canvas com degradê radial sutil */
+.react-flow {
+  background: radial-gradient(1400px 900px at 30% -10%, #FFFFFF 0%, #F5F8F6 55%, #EEF3F0 100%);
+}
+
+/* controles e minimapa alinhados ao design system */
+.react-flow__controls {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(15,40,30,0.06), 0 6px 20px rgba(15,40,30,0.12);
+}
+.react-flow__controls-button {
+  width: 34px;
+  height: 34px;
+  background: #FFFFFF;
+  border-bottom: 1px solid #EEF1EF;
+}
+.react-flow__controls-button:hover { background: #F6F8F7; }
+.react-flow__minimap {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(15,40,30,0.06), 0 6px 20px rgba(15,40,30,0.12);
+}

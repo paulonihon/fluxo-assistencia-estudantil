@@ -25,7 +25,7 @@ export function Sobre() {
       </header>
 
       <main className="mx-auto max-w-[820px] px-4 py-8 pb-16">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0E4429] font-display text-[19px] font-bold text-white">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-700 to-emerald-950 font-display text-[19px] font-bold text-white shadow-md shadow-emerald-900/25 ring-1 ring-emerald-950/20">
           AE
         </div>
         <h1 className="mt-4 font-display text-[26px] md:text-[34px] font-bold leading-tight text-[#1C2B24]">
@@ -135,7 +135,7 @@ export function Sobre() {
 
         <Link
           to="/"
-          className="mt-8 inline-block rounded-2xl bg-[#0E4429] px-5 py-3 text-[15px] font-semibold text-white hover:bg-[#14532D]"
+          className="mt-8 inline-block rounded-2xl bg-gradient-to-b from-emerald-800 to-emerald-950 px-6 py-3.5 text-[15px] font-semibold text-white shadow-lg shadow-emerald-900/25 ring-1 ring-emerald-950/30 transition-all hover:shadow-xl hover:brightness-110"
         >
           ▶ Explorar o fluxo interativo
         </Link>
