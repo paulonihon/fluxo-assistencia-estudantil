@@ -58,6 +58,15 @@ const PATHS: Record<string, React.ReactNode> = {
       <path d="M3 3v5h5" />
     </>
   ),
+  decisao: (
+    <>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+      <path d="M12 17h.01" />
+    </>
+  ),
+  inicio: <path d="M8 5v14l11-7z" />,
+  fim: <rect x="7" y="7" width="10" height="10" rx="1" />,
 }
 
 const ICONE_POR_NO: Record<string, string> = {
@@ -75,6 +84,12 @@ const ICONE_POR_NO: Record<string, string> = {
   resultado_final: 'resultado',
   verificar_frequencia: 'verificacao',
   pagamento_auxilios: 'pagamento',
+  gw_aprovado: 'decisao',
+  gw_recurso: 'decisao',
+  gw_entrevista: 'decisao',
+  gw_monitoramento: 'decisao',
+  inicio: 'inicio',
+  fim: 'fim',
 }
 
 export function NodeIcon({ noId, cor, size = 16 }: { noId: string; cor: string; size?: number }) {

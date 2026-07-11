@@ -15,6 +15,16 @@ body { font-family: 'Inter', system-ui, sans-serif; background: #FAFAF8; color: 
     radial-gradient(1400px 900px at 30% -10%, #FFFFFF 0%, #F5F8F6 55%, #ECF2EE 100%);
 }
 
+/* entrada do painel lateral */
+@keyframes panel-in {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.panel-in { animation: panel-in 0.28s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .panel-in { animation: none; }
+}
+
 /* cascata de entrada dos nós */
 @keyframes node-in {
   from { opacity: 0; transform: translateY(14px); }
