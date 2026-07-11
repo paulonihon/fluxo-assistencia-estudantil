@@ -1,0 +1,346 @@
+{
+  "titulo": "Fluxo da Política de Assistência Estudantil",
+  "raias": [
+    { "id": "cgae", "nome": "Comissão de Gestão da Assistência Estudantil (CGAE)" },
+    { "id": "comunicacao", "nome": "Setor de Comunicação" },
+    { "id": "discentes", "nome": "Discentes" },
+    { "id": "assistente_social", "nome": "Assistente Social" },
+    { "id": "financas", "nome": "Departamento de Contabilidade, Orçamento e Finanças" }
+  ],
+  "nos": [
+    {
+      "id": "inicio",
+      "tipo": "evento_inicio",
+      "rotulo": "Início",
+      "raia": "cgae",
+      "posicao": { "x": 231, "y": 66 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "nomeacao_comissao",
+      "tipo": "tarefa",
+      "rotulo": "Nomeação da Comissão (CGAE)",
+      "raia": "cgae",
+      "posicao": { "x": 371, "y": 56 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "elaboracao_edital",
+      "tipo": "tarefa",
+      "rotulo": "Elaboração do Edital",
+      "raia": "cgae",
+      "posicao": { "x": 671, "y": 55 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "submissao_edital",
+      "tipo": "tarefa",
+      "rotulo": "Submissão do Edital para a Direção Geral do campus",
+      "raia": "cgae",
+      "posicao": { "x": 1021, "y": 56 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "gw_aprovado",
+      "tipo": "gateway",
+      "rotulo": "Aprovado",
+      "raia": "cgae",
+      "posicao": { "x": 1308, "y": 133 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null,
+      "ramificacoes": [
+        {
+          "rotulo": "Sim",
+          "para": "publicacao_edital",
+          "consequencia": "O edital aprovado segue para publicação pelo Setor de Comunicação e o processo seletivo começa."
+        },
+        {
+          "rotulo": "Não",
+          "para": "elaboracao_edital",
+          "consequencia": "O edital volta para a CGAE, que o reelabora e o submete novamente à Direção Geral do campus."
+        }
+      ]
+    },
+    {
+      "id": "divulgacao_edital_comunidade",
+      "tipo": "tarefa",
+      "rotulo": "Divulgação do edital entre a comunidade",
+      "raia": "cgae",
+      "posicao": { "x": 1075, "y": 211 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "divulgacao_lista_preliminar",
+      "tipo": "tarefa",
+      "rotulo": "Divulgação da lista preliminar de seleção",
+      "raia": "cgae",
+      "posicao": { "x": 754, "y": 211 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "gw_recurso",
+      "tipo": "gateway",
+      "rotulo": "Recurso",
+      "raia": "cgae",
+      "posicao": { "x": 618, "y": 210 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null,
+      "ramificacoes": [
+        {
+          "rotulo": "Sim",
+          "para": "recurso_task",
+          "consequencia": "O discente que discorda da lista preliminar apresenta recurso, que será analisado antes do resultado final."
+        },
+        {
+          "rotulo": "Não",
+          "para": "resultado_final",
+          "consequencia": "Sem recursos, a CGAE consolida e divulga o resultado final da seleção."
+        }
+      ]
+    },
+    {
+      "id": "resultado_final",
+      "tipo": "tarefa",
+      "rotulo": "Resultado Final",
+      "raia": "cgae",
+      "posicao": { "x": 320, "y": 211 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "verificar_frequencia",
+      "tipo": "tarefa",
+      "rotulo": "Verificar frequência e notas dos discentes",
+      "raia": "cgae",
+      "posicao": { "x": 205, "y": 372 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "gw_monitoramento",
+      "tipo": "gateway",
+      "rotulo": "Monitoramento",
+      "raia": "cgae",
+      "posicao": { "x": 453, "y": 371 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null,
+      "ramificacoes": [
+        {
+          "rotulo": "Sim",
+          "para": "pagamento_auxilios",
+          "consequencia": "O discente mantém os requisitos de permanência e o pagamento do auxílio continua."
+        },
+        {
+          "rotulo": "Não",
+          "para": "verificar_frequencia",
+          "consequencia": "A CGAE verifica a frequência e as notas do discente para reavaliar a manutenção do auxílio."
+        }
+      ]
+    },
+    {
+      "id": "publicacao_edital",
+      "tipo": "tarefa",
+      "rotulo": "Publicação do Edital",
+      "raia": "comunicacao",
+      "posicao": { "x": 1229, "y": 560 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "publicacao_resultado_final",
+      "tipo": "tarefa",
+      "rotulo": "Publicação do Resultado Final",
+      "raia": "comunicacao",
+      "posicao": { "x": 210, "y": 560 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "realizacao_inscricoes",
+      "tipo": "tarefa",
+      "rotulo": "Realização das Inscrições pelo SUAP",
+      "raia": "discentes",
+      "posicao": { "x": 1029, "y": 745 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "recurso_task",
+      "tipo": "tarefa",
+      "rotulo": "Recurso",
+      "raia": "discentes",
+      "posicao": { "x": 545, "y": 745 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "analise_socioeconomica",
+      "tipo": "tarefa",
+      "rotulo": "Análise Socioeconômica dos discentes inscritos",
+      "raia": "assistente_social",
+      "posicao": { "x": 1030, "y": 914 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "gw_entrevista",
+      "tipo": "gateway",
+      "rotulo": "Entrevista",
+      "raia": "assistente_social",
+      "posicao": { "x": 761, "y": 912 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null,
+      "ramificacoes": [
+        {
+          "rotulo": "Sim",
+          "para": "entrevista_task",
+          "consequencia": "A assistente social convoca o discente para entrevista antes de concluir a análise."
+        },
+        {
+          "rotulo": "Não",
+          "para": "divulgacao_lista_preliminar",
+          "consequencia": "Sem necessidade de entrevista, a análise é concluída e a lista preliminar de seleção é divulgada."
+        }
+      ]
+    },
+    {
+      "id": "entrevista_task",
+      "tipo": "tarefa",
+      "rotulo": "Entrevista",
+      "raia": "assistente_social",
+      "posicao": { "x": 448, "y": 911 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "pagamento_auxilios",
+      "tipo": "tarefa",
+      "rotulo": "Pagamento dos auxílios",
+      "raia": "financas",
+      "posicao": { "x": 302, "y": 1094 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    },
+    {
+      "id": "fim",
+      "tipo": "evento_fim",
+      "rotulo": "Fim",
+      "raia": "financas",
+      "posicao": { "x": 1365, "y": 1105 },
+      "descricao": null,
+      "responsavel": null,
+      "base_legal": null,
+      "documentos": null,
+      "prazo": null,
+      "o_que_fazer": null
+    }
+  ],
+  "conexoes": [
+    { "de": "inicio", "para": "nomeacao_comissao", "tipo": "sequencia" },
+    { "de": "nomeacao_comissao", "para": "elaboracao_edital", "tipo": "sequencia" },
+    { "de": "elaboracao_edital", "para": "submissao_edital", "tipo": "sequencia" },
+    { "de": "submissao_edital", "para": "gw_aprovado", "tipo": "sequencia" },
+    { "de": "gw_aprovado", "para": "elaboracao_edital", "rotulo": "Não", "tipo": "retorno" },
+    { "de": "gw_aprovado", "para": "publicacao_edital", "rotulo": "Sim", "tipo": "sequencia" },
+    { "de": "publicacao_edital", "para": "divulgacao_edital_comunidade", "tipo": "sequencia" },
+    { "de": "divulgacao_edital_comunidade", "para": "realizacao_inscricoes", "tipo": "sequencia" },
+    { "de": "realizacao_inscricoes", "para": "analise_socioeconomica", "tipo": "sequencia" },
+    { "de": "analise_socioeconomica", "para": "gw_entrevista", "tipo": "sequencia" },
+    { "de": "gw_entrevista", "para": "entrevista_task", "rotulo": "Sim", "tipo": "sequencia" },
+    { "de": "gw_entrevista", "para": "divulgacao_lista_preliminar", "rotulo": "Não", "tipo": "retorno" },
+    { "de": "entrevista_task", "para": "divulgacao_lista_preliminar", "tipo": "sequencia" },
+    { "de": "divulgacao_lista_preliminar", "para": "gw_recurso", "tipo": "sequencia" },
+    { "de": "gw_recurso", "para": "resultado_final", "rotulo": "Não", "tipo": "retorno" },
+    { "de": "gw_recurso", "para": "recurso_task", "rotulo": "Sim", "tipo": "sequencia" },
+    { "de": "recurso_task", "para": "resultado_final", "tipo": "sequencia" },
+    { "de": "resultado_final", "para": "publicacao_resultado_final", "tipo": "sequencia" },
+    { "de": "publicacao_resultado_final", "para": "pagamento_auxilios", "tipo": "sequencia" },
+    { "de": "pagamento_auxilios", "para": "gw_monitoramento", "tipo": "sequencia" },
+    { "de": "gw_monitoramento", "para": "verificar_frequencia", "rotulo": "Não", "tipo": "retorno" },
+    { "de": "gw_monitoramento", "para": "pagamento_auxilios", "rotulo": "Sim", "tipo": "sequencia" },
+    { "de": "verificar_frequencia", "para": "resultado_final", "tipo": "sequencia" },
+    { "de": "pagamento_auxilios", "para": "fim", "tipo": "sequencia" }
+  ]
+}
