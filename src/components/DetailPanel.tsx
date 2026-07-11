@@ -15,7 +15,7 @@ function Bloco({ titulo, children }: { titulo: string; children: React.ReactNode
   )
 }
 
-function ConteudoNo({ no }: { no: FlowNodeData }) {
+export function ConteudoNo({ no }: { no: FlowNodeData }) {
   const visual = RAIA_VISUAL[no.raia]
   return (
     <div className="px-4 md:px-5 pb-6">
@@ -118,10 +118,9 @@ export function DetailPanel() {
         </div>
         <ConteudoNo no={no} />
       </aside>
-      {/* mobile: bottom sheet */}
-      <div
-        className={`md:hidden absolute inset-x-0 z-20 overflow-y-auto rounded-t-3xl bg-white shadow-[0_-8px_24px_rgba(15,40,30,0.16)] ${tourAtivo ? 'bottom-[148px] max-h-[36vh]' : 'bottom-0 max-h-[55vh]'}`}
-      >
+      {/* mobile: bottom sheet (na trilha, o sheet da trilha assume o conteúdo) */}
+      {tourAtivo ? null : (
+      <div className="md:hidden absolute inset-x-0 bottom-0 z-20 max-h-[55vh] overflow-y-auto rounded-t-3xl bg-white shadow-[0_-8px_24px_rgba(15,40,30,0.16)]">
         <div className="sticky top-0 z-10 bg-white/95 backdrop-blur">
           <div
             className="h-1.5 w-full rounded-t-3xl"
@@ -141,6 +140,7 @@ export function DetailPanel() {
         </div>
         <ConteudoNo no={no} />
       </div>
+      )}
     </>
   )
 }
