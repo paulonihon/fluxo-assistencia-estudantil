@@ -19,20 +19,22 @@ export function Header() {
   }
 
   return (
-    <header className="border-b border-black/5 bg-white/90 backdrop-blur-md">
-      <div className="flex h-16 items-center gap-2 px-4 md:gap-3 md:px-6">
-        <span className="hidden h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-700 to-emerald-950 font-display text-[14px] font-bold text-white shadow-sm ring-1 ring-emerald-900/20 md:flex">
+    <header className="relative overflow-hidden bg-gradient-to-r from-[#0A2E22] via-[#14503C] to-[#0F3D2E]">
+      <div className="pointer-events-none absolute -right-24 -top-32 h-72 w-72 rounded-full border border-white/10" />
+      <div className="pointer-events-none absolute -top-24 right-32 h-48 w-48 rounded-full bg-white/[0.04] blur-xl" />
+      <div className="relative flex h-16 items-center gap-2 px-4 md:gap-3 md:px-6">
+        <span className="hidden h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white font-display text-[14px] font-bold text-emerald-950 shadow-md shadow-black/20 md:flex">
           AE
         </span>
-        <h1 className="min-w-0 flex-1 truncate font-display text-[15px] font-semibold tracking-tight text-[#14201A] md:text-[17px]">
+        <h1 className="min-w-0 flex-1 truncate font-display text-[15px] font-semibold tracking-tight text-white md:text-[17px]">
           Fluxo da Política de Assistência Estudantil
         </h1>
         <button
           type="button"
           className={`inline-flex h-10 shrink-0 items-center gap-1.5 rounded-xl px-4 text-[13px] font-semibold transition-all ${
             tourAtivo
-              ? 'bg-gray-100 text-gray-400'
-              : 'bg-gradient-to-b from-emerald-800 to-emerald-950 text-white shadow-md shadow-emerald-900/20 ring-1 ring-emerald-950/30 hover:shadow-lg hover:brightness-110'
+              ? 'bg-white/10 text-white/40'
+              : 'bg-white text-emerald-950 shadow-md shadow-black/20 hover:brightness-95'
           }`}
           onClick={() => setTour({ ativo: true, atual: 'inicio', historico: [] })}
           disabled={tourAtivo}
@@ -42,14 +44,14 @@ export function Header() {
         </button>
         <button
           type="button"
-          className="inline-flex h-10 shrink-0 items-center rounded-xl bg-white px-4 text-[13px] font-semibold text-gray-700 shadow-sm ring-1 ring-gray-200 transition-colors hover:bg-gray-50 hover:ring-gray-300"
+          className="inline-flex h-10 shrink-0 items-center rounded-xl bg-white/10 px-4 text-[13px] font-semibold text-white ring-1 ring-white/25 backdrop-blur transition-colors hover:bg-white/15"
           onClick={() => setGlossarioAberto(true)}
         >
           Glossário
         </button>
         <Link
           to="/sobre"
-          className="inline-flex h-10 shrink-0 items-center rounded-xl bg-white px-4 text-[13px] font-semibold text-gray-700 shadow-sm ring-1 ring-gray-200 transition-colors hover:bg-gray-50 hover:ring-gray-300"
+          className="inline-flex h-10 shrink-0 items-center rounded-xl bg-white/10 px-4 text-[13px] font-semibold text-white ring-1 ring-white/25 backdrop-blur transition-colors hover:bg-white/15"
         >
           Sobre
         </Link>
@@ -57,7 +59,7 @@ export function Header() {
           type="button"
           title="Ver o fluxograma completo em tela cheia"
           aria-label="Tela cheia"
-          className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[15px] text-gray-600 shadow-sm ring-1 ring-gray-200 transition-colors hover:bg-gray-50 hover:ring-gray-300 md:inline-flex"
+          className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[15px] text-white ring-1 ring-white/25 backdrop-blur transition-colors hover:bg-white/15 md:inline-flex"
           onClick={telaCheia}
         >
           ⛶

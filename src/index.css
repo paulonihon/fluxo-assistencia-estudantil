@@ -5,9 +5,32 @@
 html, body, #root { height: 100%; margin: 0; overscroll-behavior: none; }
 body { font-family: 'Inter', system-ui, sans-serif; background: #FAFAF8; color: #1C2B24; }
 
-/* fundo do canvas com degradê radial sutil */
+/* fundo do canvas com atmosfera: degradês radiais + anéis translúcidos ecoando o hero */
 .react-flow {
-  background: radial-gradient(1400px 900px at 30% -10%, #FFFFFF 0%, #F5F8F6 55%, #EEF3F0 100%);
+  background:
+    radial-gradient(circle at 92% 108%, transparent 34.6%, rgba(13, 74, 50, 0.05) 34.9%, rgba(13, 74, 50, 0.05) 35.5%, transparent 35.8%),
+    radial-gradient(circle at -4% -12%, transparent 24.6%, rgba(13, 74, 50, 0.045) 24.9%, rgba(13, 74, 50, 0.045) 25.5%, transparent 25.8%),
+    radial-gradient(900px 620px at 88% 112%, rgba(16, 84, 56, 0.07), transparent 70%),
+    radial-gradient(720px 520px at -8% -10%, rgba(16, 84, 56, 0.06), transparent 70%),
+    radial-gradient(1400px 900px at 30% -10%, #FFFFFF 0%, #F5F8F6 55%, #ECF2EE 100%);
+}
+
+/* cascata de entrada dos nós */
+@keyframes node-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.react-flow__node-task,
+.react-flow__node-gateway,
+.react-flow__node-event {
+  animation: node-in 0.5s ease-out backwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .react-flow__node-task,
+  .react-flow__node-gateway,
+  .react-flow__node-event {
+    animation: none;
+  }
 }
 
 /* controles e minimapa alinhados ao design system */

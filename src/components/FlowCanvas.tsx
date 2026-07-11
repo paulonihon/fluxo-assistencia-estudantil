@@ -30,9 +30,9 @@ export function FlowCanvas() {
         ...e,
         markerEnd: {
           type: MarkerType.ArrowClosed,
-          color: e.data?.tipo === 'retorno' ? '#F87171' : '#64748B',
-          width: 16,
-          height: 16,
+          color: e.data?.tipo === 'retorno' ? '#E24A4A' : '#44534C',
+          width: 18,
+          height: 18,
         },
       })),
     [],
@@ -63,22 +63,24 @@ export function FlowCanvas() {
 
   const nodes = useMemo(
     () =>
-      baseNodes.map((n) => {
+      baseNodes.map((n, i) => {
         if (n.type === 'lane') return n
+        // cascata de entrada: cada nó surge com um pequeno atraso
+        const entrada = { animationDelay: `${(i % 24) * 45}ms` }
         if (revelados) {
           const fantasma = !revelados.has(n.id)
           return {
             ...n,
             selected: n.id === tour.atual,
-            style: { opacity: fantasma ? 0.07 : 1, transition: 'opacity 0.45s' },
+            style: { ...entrada, opacity: fantasma ? 0.07 : 1, transition: 'opacity 0.45s' },
           }
         }
         return {
           ...n,
           selected: n.id === selectedNodeId,
           style: dimNodes.has(n.id)
-            ? { opacity: 0.15, transition: 'opacity 0.3s' }
-            : { transition: 'opacity 0.3s' },
+            ? { ...entrada, opacity: 0.15, transition: 'opacity 0.3s' }
+            : { ...entrada, transition: 'opacity 0.3s' },
         }
       }),
     [baseNodes, dimNodes, selectedNodeId, revelados, tour.atual],
