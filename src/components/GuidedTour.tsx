@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useReactFlow } from '@xyflow/react'
 import flow from '../data/flow.json'
 import type { FlowData } from '../types'
@@ -22,15 +22,18 @@ export function GuidedTour() {
   const select = useAppStore((s) => s.select)
   const clearSelection = useAppStore((s) => s.clearSelection)
   const { setCenter } = useReactFlow()
+  // no mobile o sheet começa compacto para não sobrepor o fluxo
+  const [expandido, setExpandido] = useState(false)
 
   const focar = useCallback(
-    (id: string) => {
+    (id: string, sheetExpandido: boolean) => {
       const c = centroDoNo(id)
       const mobile = window.innerWidth < 768
       // cada etapa aparece em tamanho grande na tela
       const zoom = mobile ? 1.9 : 1.6
       // desloca o alvo para a área visível (acima do sheet no mobile, à esquerda do painel no desktop)
-      const offsetY = mobile ? (window.innerHeight * 0.27) / zoom : 0
+      const fatorSheet = sheetExpandido ? 0.27 : 0.11
+      const offsetY = mobile ? (window.innerHeight * fatorSheet) / zoom : 0
       const offsetX = mobile ? 0 : 190 / zoom
       // easing suave (easeInOutCubic) e duração maior para a câmera deslizar com calma
       const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
@@ -42,9 +45,9 @@ export function GuidedTour() {
   useEffect(() => {
     if (tour.ativo && tour.atual) {
       select(tour.atual)
-      focar(tour.atual)
+      focar(tour.atual, expandido)
     }
-  }, [tour.ativo, tour.atual, select, focar])
+  }, [tour.ativo, tour.atual, select, focar, expandido])
 
   if (!tour.ativo || !tour.atual) return null
 
@@ -171,14 +174,16 @@ export function GuidedTour() {
         </div>
       </div>
 
-      {/* mobile: superfície única — conteúdo da etapa + controles da trilha */}
-      <div className="absolute inset-x-0 bottom-0 z-30 flex max-h-[58vh] flex-col rounded-t-3xl bg-white shadow-[0_-8px_28px_rgba(15,40,30,0.2)] md:hidden">
+      {/* mobile: superfície única recolhível — compacta por padrão para não sobrepor o fluxo */}
+      <div
+        className={`absolute inset-x-0 bottom-0 z-30 flex flex-col rounded-t-3xl bg-white shadow-[0_-8px_28px_rgba(15,40,30,0.2)] md:hidden ${expandido ? 'max-h-[58vh]' : ''}`}
+      >
         <div className="shrink-0">
           <div
             className="h-1.5 w-full rounded-t-3xl"
             style={{ background: `linear-gradient(90deg, ${visual.cor}, ${visual.cor}99)` }}
           />
-          <div className="flex items-center justify-between px-4 pb-1 pt-2">
+          <div className="flex items-center justify-between px-4 pb-0.5 pt-2">
             <div className="flex items-center gap-2">
               <span
                 className="inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide"
@@ -189,21 +194,39 @@ export function GuidedTour() {
               </span>
               <span className="text-[11px] font-semibold text-gray-400">passo {passo}</span>
             </div>
-            <button
-              type="button"
-              className="rounded-full px-2.5 py-1 text-[12px] font-medium text-gray-500 hover:bg-gray-100"
-              onClick={sair}
-            >
-              Sair
-            </button>
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                className="rounded-full px-2.5 py-1 text-[12px] font-semibold text-emerald-800 hover:bg-emerald-50"
+                onClick={() => setExpandido(!expandido)}
+              >
+                {expandido ? 'Ocultar detalhes ▾' : 'Ver detalhes ▴'}
+              </button>
+              <button
+                type="button"
+                className="rounded-full px-2.5 py-1 text-[12px] font-medium text-gray-500 hover:bg-gray-100"
+                onClick={sair}
+              >
+                Sair
+              </button>
+            </div>
           </div>
         </div>
-        <div className="relative min-h-0 flex-1 overflow-y-auto">
-          <ConteudoNo no={atual} />
-          {/* fade sinalizando conteúdo rolável */}
-          <div className="pointer-events-none sticky bottom-0 h-6 w-full bg-gradient-to-t from-white to-transparent" />
-        </div>
-        <div className="shrink-0 border-t border-gray-100 px-4 py-3">{botoes}</div>
+        {expandido ? (
+          <div className="relative min-h-0 flex-1 overflow-y-auto">
+            <ConteudoNo no={atual} />
+            {/* fade sinalizando conteúdo rolável */}
+            <div className="pointer-events-none sticky bottom-0 h-6 w-full bg-gradient-to-t from-white to-transparent" />
+          </div>
+        ) : (
+          <div className="px-4 pt-1">
+            <div className="font-display text-[15px] font-semibold leading-snug text-[#14201A]">
+              {atual.rotulo}
+            </div>
+            {consequencias ? <div className="mt-2">{consequencias}</div> : null}
+          </div>
+        )}
+        <div className="shrink-0 px-4 py-3">{botoes}</div>
       </div>
     </>
   )
