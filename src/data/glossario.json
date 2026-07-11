@@ -1,0 +1,94 @@
+{
+  "termos": [
+    {
+      "sigla": "AE",
+      "nome": "Assistência Estudantil",
+      "definicao": "Conjunto de ações voltadas a garantir condições de permanência e êxito dos estudantes, enfrentando as barreiras socioeconômicas que dificultam a continuidade dos estudos."
+    },
+    {
+      "sigla": "CGAE",
+      "nome": "Comissão de Gestão da Assistência Estudantil",
+      "definicao": "Comissão nomeada por portaria da Direção Geral do campus, responsável por elaborar os editais, conduzir a seleção e acompanhar a execução da política de assistência estudantil."
+    },
+    {
+      "sigla": "SUAP",
+      "nome": "Sistema Unificado de Administração Pública",
+      "definicao": "Sistema institucional usado para as inscrições no processo seletivo e para o registro acadêmico dos estudantes; é a principal fonte para o acompanhamento da frequência, das notas e da evasão."
+    },
+    {
+      "sigla": "PNAES",
+      "nome": "Programa Nacional de Assistência Estudantil",
+      "definicao": "Criado pelo Decreto nº 7.234/2010, deu base nacional à assistência estudantil. Com a Lei nº 14.914/2024, deixou de ser programa e se consolidou como Política Nacional de Assistência Estudantil."
+    },
+    {
+      "sigla": "PAAE",
+      "nome": "Programa de Assistência e Apoio ao Estudante",
+      "definicao": "Programa do IFBA que operacionaliza a assistência estudantil no campus por meio de editais de seleção com critérios de elegibilidade, documentação exigida e avaliação socioeconômica."
+    },
+    {
+      "sigla": "PAE",
+      "nome": "Política de Assistência Estudantil",
+      "definicao": "Política institucional que organiza as ações de assistência estudantil, do edital de seleção ao pagamento e monitoramento dos auxílios."
+    },
+    {
+      "sigla": "DCOF",
+      "nome": "Departamento de Contabilidade, Orçamento e Finanças",
+      "definicao": "Setor responsável pela execução financeira da política, incluindo o pagamento dos auxílios aos discentes contemplados."
+    },
+    {
+      "sigla": "CORES",
+      "nome": "Coordenação de Registros Escolares",
+      "definicao": "Setor responsável pelos registros acadêmicos dos estudantes no campus."
+    },
+    {
+      "sigla": "PNP",
+      "nome": "Plataforma Nilo Peçanha",
+      "definicao": "Base nacional de dados da Rede Federal de Educação Profissional, com indicadores de matrículas, evasão e assistência estudantil desde 2017."
+    },
+    {
+      "sigla": "SISTEC",
+      "nome": "Sistema Nacional de Informações da Educação Profissional e Tecnológica",
+      "definicao": "Sistema nacional de registro das matrículas e cursos da educação profissional e tecnológica."
+    },
+    {
+      "sigla": "SIAFI",
+      "nome": "Sistema Integrado de Administração Financeira do Governo Federal",
+      "definicao": "Sistema do Governo Federal usado para registro e execução orçamentária e financeira dos recursos públicos."
+    },
+    {
+      "sigla": "IFBA",
+      "nome": "Instituto Federal de Educação, Ciência e Tecnologia da Bahia",
+      "definicao": "Instituição da Rede Federal onde o fluxo apresentado se aplica, no campus Juazeiro."
+    },
+    {
+      "sigla": "TAE",
+      "nome": "Técnico Administrativo em Educação",
+      "definicao": "Servidor da carreira técnico-administrativa que atua nos setores do campus, incluindo a composição da CGAE."
+    },
+    {
+      "sigla": "Edital",
+      "nome": "Edital de seleção",
+      "definicao": "Documento oficial que rege o processo seletivo: define critérios de elegibilidade, documentação exigida, número de vagas, metodologia de avaliação socioeconômica e prazos."
+    },
+    {
+      "sigla": "Análise socioeconômica",
+      "nome": "Análise socioeconômica",
+      "definicao": "Avaliação feita pela assistente social sobre a documentação e a situação social e econômica do discente inscrito, para verificar os critérios de elegibilidade do edital."
+    },
+    {
+      "sigla": "Recurso",
+      "nome": "Recurso administrativo",
+      "definicao": "Pedido de revisão apresentado pelo discente que discorda do resultado preliminar da seleção, dentro do prazo do edital, podendo incluir documentação complementar."
+    },
+    {
+      "sigla": "Auxílio",
+      "nome": "Auxílios estudantis",
+      "definicao": "Apoios financeiros pagos aos discentes contemplados, como auxílio transporte, auxílio alimentação e auxílio aquisições."
+    },
+    {
+      "sigla": "Evasão",
+      "nome": "Evasão escolar",
+      "definicao": "Interrupção do vínculo do estudante com o curso antes da conclusão; o enfrentamento da evasão é um dos objetivos centrais da assistência estudantil."
+    }
+  ]
+}

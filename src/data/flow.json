@@ -14,9 +14,9 @@
       "rotulo": "Início",
       "raia": "cgae",
       "posicao": { "x": 231, "y": 66 },
-      "descricao": null,
-      "responsavel": null,
-      "base_legal": null,
+      "descricao": "Ponto de partida do ciclo da Política de Assistência Estudantil no campus. A cada ciclo, o processo começa com a nomeação da comissão responsável pela gestão da política.",
+      "responsavel": "Direção Geral do campus",
+      "base_legal": "Decreto nº 7.234/2010 (PNAES); Lei nº 14.914/2024",
       "documentos": null,
       "prazo": null,
       "o_que_fazer": null
@@ -27,12 +27,12 @@
       "rotulo": "Nomeação da Comissão (CGAE)",
       "raia": "cgae",
       "posicao": { "x": 371, "y": 56 },
-      "descricao": null,
-      "responsavel": null,
-      "base_legal": null,
-      "documentos": null,
+      "descricao": "A CGAE é constituída por portaria da Direção Geral, com composição renovada periodicamente. A pesquisa analisou as portarias de 2021 a 2025 e identificou renovação anual entre 37,5% e 90% dos membros, com participação de técnicos administrativos, docentes e representantes discentes. A permanência de alguns servidores ao longo dos anos ajudou a manter a memória institucional da política.",
+      "responsavel": "Direção Geral do campus",
+      "base_legal": "Portarias institucionais de composição da CGAE (2021 a 2025)",
+      "documentos": ["Portaria de nomeação da CGAE"],
       "prazo": null,
-      "o_que_fazer": null
+      "o_que_fazer": "Consulte a portaria vigente para saber quem compõe a CGAE do campus e a quem recorrer em caso de dúvida sobre a política."
     },
     {
       "id": "elaboracao_edital",
@@ -40,10 +40,10 @@
       "rotulo": "Elaboração do Edital",
       "raia": "cgae",
       "posicao": { "x": 671, "y": 55 },
-      "descricao": null,
-      "responsavel": null,
-      "base_legal": null,
-      "documentos": null,
+      "descricao": "A CGAE elabora o edital de seleção do Programa de Assistência e Apoio ao Estudante (PAAE), definindo critérios de elegibilidade, documentação exigida, número de vagas, metodologia de avaliação socioeconômica e prazos. A análise dos editais de 2021 a 2025 mostrou relativa estabilidade nos critérios formais ao longo do período.",
+      "responsavel": "Comissão de Gestão da Assistência Estudantil (CGAE)",
+      "base_legal": "Editais do PAAE; Decreto nº 7.234/2010 (PNAES); Lei nº 14.914/2024",
+      "documentos": ["Minuta do edital do PAAE"],
       "prazo": null,
       "o_que_fazer": null
     },
@@ -53,10 +53,10 @@
       "rotulo": "Submissão do Edital para a Direção Geral do campus",
       "raia": "cgae",
       "posicao": { "x": 1021, "y": 56 },
-      "descricao": null,
-      "responsavel": null,
+      "descricao": "A minuta do edital elaborada pela CGAE é encaminhada à Direção Geral do campus, que avalia e delibera sobre sua aprovação antes da publicação.",
+      "responsavel": "CGAE (envio) e Direção Geral do campus (deliberação)",
       "base_legal": null,
-      "documentos": null,
+      "documentos": ["Minuta do edital do PAAE"],
       "prazo": null,
       "o_que_fazer": null
     },
@@ -66,8 +66,8 @@
       "rotulo": "Aprovado",
       "raia": "cgae",
       "posicao": { "x": 1308, "y": 133 },
-      "descricao": null,
-      "responsavel": null,
+      "descricao": "Ponto de decisão: a Direção Geral aprova ou não o edital submetido pela CGAE.",
+      "responsavel": "Direção Geral do campus",
       "base_legal": null,
       "documentos": null,
       "prazo": null,
@@ -91,12 +91,12 @@
       "rotulo": "Divulgação do edital entre a comunidade",
       "raia": "cgae",
       "posicao": { "x": 1075, "y": 211 },
-      "descricao": null,
-      "responsavel": null,
+      "descricao": "Após a publicação, a CGAE divulga o edital entre a comunidade acadêmica. A pesquisa identificou fragilidades nessa etapa: o acesso à informação não ocorre de maneira homogênea e muitos estudantes dependem de canais informais, como grupos de WhatsApp, para saber dos prazos e exigências.",
+      "responsavel": "Comissão de Gestão da Assistência Estudantil (CGAE)",
       "base_legal": null,
-      "documentos": null,
+      "documentos": ["Edital do PAAE publicado"],
       "prazo": null,
-      "o_que_fazer": null
+      "o_que_fazer": "Acompanhe os canais oficiais do campus e confirme sempre os prazos diretamente no edital publicado, sem depender apenas de repasses informais."
     },
     {
       "id": "divulgacao_lista_preliminar",
@@ -104,12 +104,12 @@
       "rotulo": "Divulgação da lista preliminar de seleção",
       "raia": "cgae",
       "posicao": { "x": 754, "y": 211 },
-      "descricao": null,
-      "responsavel": null,
-      "base_legal": null,
-      "documentos": null,
-      "prazo": null,
-      "o_que_fazer": null
+      "descricao": "Concluída a análise socioeconômica, a CGAE divulga a lista preliminar com os resultados da seleção. É a partir dela que o discente sabe se foi deferido ou indeferido e pode decidir se apresenta recurso. Em um dos processos analisados na pesquisa, 240 das 328 inscrições válidas (cerca de 75%) foram inicialmente indeferidas, principalmente por problemas de documentação.",
+      "responsavel": "Comissão de Gestão da Assistência Estudantil (CGAE)",
+      "base_legal": "Editais do PAAE",
+      "documentos": ["Lista preliminar de seleção"],
+      "prazo": "Conforme cronograma do edital",
+      "o_que_fazer": "Confira seu nome e a situação da sua inscrição na lista preliminar. Se foi indeferido, leia o motivo com atenção: muitos indeferimentos são revertidos com recurso e complementação de documentos."
     },
     {
       "id": "gw_recurso",
@@ -117,17 +117,17 @@
       "rotulo": "Recurso",
       "raia": "cgae",
       "posicao": { "x": 618, "y": 210 },
-      "descricao": null,
-      "responsavel": null,
-      "base_legal": null,
+      "descricao": "Ponto de decisão: o discente concorda com a lista preliminar ou apresenta recurso administrativo contra o resultado.",
+      "responsavel": "Discente (decisão) e CGAE (análise do recurso)",
+      "base_legal": "Editais do PAAE",
       "documentos": null,
-      "prazo": null,
+      "prazo": "Período de recursos definido no cronograma do edital",
       "o_que_fazer": null,
       "ramificacoes": [
         {
           "rotulo": "Sim",
           "para": "recurso_task",
-          "consequencia": "O discente que discorda da lista preliminar apresenta recurso, que será analisado antes do resultado final."
+          "consequencia": "O discente que discorda da lista preliminar apresenta recurso, que será analisado pela CGAE antes do resultado final."
         },
         {
           "rotulo": "Não",
@@ -142,11 +142,11 @@
       "rotulo": "Resultado Final",
       "raia": "cgae",
       "posicao": { "x": 320, "y": 211 },
-      "descricao": null,
-      "responsavel": null,
-      "base_legal": null,
-      "documentos": null,
-      "prazo": null,
+      "descricao": "Após o período de recursos, a CGAE consolida o resultado final da seleção, incorporando os recursos deferidos. No processo analisado na pesquisa, a atuação da comissão com atendimento on-line durante o período de recursos possibilitou a aprovação de 109 recursos administrativos, reduzindo bastante o índice inicial de indeferimentos.",
+      "responsavel": "Comissão de Gestão da Assistência Estudantil (CGAE)",
+      "base_legal": "Editais do PAAE",
+      "documentos": ["Resultado final da seleção"],
+      "prazo": "Conforme cronograma do edital",
       "o_que_fazer": null
     },
     {
@@ -155,12 +155,12 @@
       "rotulo": "Verificar frequência e notas dos discentes",
       "raia": "cgae",
       "posicao": { "x": 205, "y": 372 },
-      "descricao": null,
-      "responsavel": null,
+      "descricao": "Quando o monitoramento aponta pendências, a CGAE verifica a frequência e o desempenho acadêmico do discente beneficiário nos registros do SUAP. A dissertação propõe que cada reunião da CGAE tenha pauta específica para análise de indicadores como frequência, desempenho e situações de risco de evasão, transformando o acompanhamento em processo contínuo.",
+      "responsavel": "Comissão de Gestão da Assistência Estudantil (CGAE)",
       "base_legal": null,
-      "documentos": null,
+      "documentos": ["Registros acadêmicos do SUAP"],
       "prazo": null,
-      "o_que_fazer": null
+      "o_que_fazer": "Se você é beneficiário, mantenha frequência e desempenho em dia: são os requisitos verificados para a manutenção do auxílio."
     },
     {
       "id": "gw_monitoramento",
@@ -168,8 +168,8 @@
       "rotulo": "Monitoramento",
       "raia": "cgae",
       "posicao": { "x": 453, "y": 371 },
-      "descricao": null,
-      "responsavel": null,
+      "descricao": "Ponto de decisão do acompanhamento contínuo: o discente beneficiário mantém os requisitos de permanência no programa? O monitoramento usa os registros acadêmicos do SUAP, principal fonte institucional para o acompanhamento da evasão.",
+      "responsavel": "Comissão de Gestão da Assistência Estudantil (CGAE)",
       "base_legal": null,
       "documentos": null,
       "prazo": null,
@@ -178,7 +178,7 @@
         {
           "rotulo": "Sim",
           "para": "pagamento_auxilios",
-          "consequencia": "O discente mantém os requisitos de permanência e o pagamento do auxílio continua."
+          "consequencia": "O discente mantém os requisitos de permanência e o pagamento do auxílio continua normalmente."
         },
         {
           "rotulo": "Não",
@@ -193,12 +193,12 @@
       "rotulo": "Publicação do Edital",
       "raia": "comunicacao",
       "posicao": { "x": 1229, "y": 560 },
-      "descricao": null,
-      "responsavel": null,
-      "base_legal": null,
-      "documentos": null,
+      "descricao": "O Setor de Comunicação publica oficialmente o edital aprovado nos canais institucionais do campus, dando início público ao processo seletivo do PAAE.",
+      "responsavel": "Setor de Comunicação",
+      "base_legal": "Edital do PAAE aprovado pela Direção Geral",
+      "documentos": ["Edital do PAAE"],
       "prazo": null,
-      "o_que_fazer": null
+      "o_que_fazer": "Leia o edital completo assim que publicado: é nele que estão os critérios, a documentação exigida e todos os prazos do processo."
     },
     {
       "id": "publicacao_resultado_final",
@@ -206,11 +206,11 @@
       "rotulo": "Publicação do Resultado Final",
       "raia": "comunicacao",
       "posicao": { "x": 210, "y": 560 },
-      "descricao": null,
-      "responsavel": null,
-      "base_legal": null,
-      "documentos": null,
-      "prazo": null,
+      "descricao": "O Setor de Comunicação publica o resultado final da seleção nos canais institucionais, tornando oficial a lista de discentes contemplados com os auxílios.",
+      "responsavel": "Setor de Comunicação",
+      "base_legal": "Editais do PAAE",
+      "documentos": ["Resultado final da seleção"],
+      "prazo": "Conforme cronograma do edital",
       "o_que_fazer": null
     },
     {
@@ -219,12 +219,12 @@
       "rotulo": "Realização das Inscrições pelo SUAP",
       "raia": "discentes",
       "posicao": { "x": 1029, "y": 745 },
-      "descricao": null,
-      "responsavel": null,
-      "base_legal": null,
-      "documentos": null,
-      "prazo": null,
-      "o_que_fazer": null
+      "descricao": "Os discentes se inscrevem no processo seletivo pelo SUAP, anexando a documentação socioeconômica exigida no edital. A pesquisa apontou que essa etapa concentra dificuldades: exigências documentais atingem com mais intensidade os estudantes em maior vulnerabilidade, e os próprios estudantes sugeriram a simplificação do processo de inscrição.",
+      "responsavel": "Discentes",
+      "base_legal": "Editais do PAAE",
+      "documentos": ["Documentação socioeconômica exigida no edital"],
+      "prazo": "Período de inscrições definido no cronograma do edital",
+      "o_que_fazer": "Reúna a documentação com antecedência, confira item por item a lista do edital e conclua a inscrição no SUAP dentro do prazo. Em caso de dúvida, procure a CGAE ou a assistente social."
     },
     {
       "id": "recurso_task",
@@ -232,12 +232,12 @@
       "rotulo": "Recurso",
       "raia": "discentes",
       "posicao": { "x": 545, "y": 745 },
-      "descricao": null,
-      "responsavel": null,
-      "base_legal": null,
-      "documentos": null,
-      "prazo": null,
-      "o_que_fazer": null
+      "descricao": "O discente que discorda do resultado preliminar apresenta recurso administrativo no prazo do edital, podendo complementar documentação ou contestar o motivo do indeferimento. No processo analisado na pesquisa, 109 recursos foram aprovados após atendimento on-line da comissão durante o período recursal.",
+      "responsavel": "Discentes",
+      "base_legal": "Editais do PAAE",
+      "documentos": ["Formulário de recurso", "Documentação complementar, quando necessária"],
+      "prazo": "Período de recursos definido no cronograma do edital",
+      "o_que_fazer": "Leia o motivo do indeferimento, junte os documentos que faltaram e apresente o recurso dentro do prazo. O recurso reverte grande parte dos indeferimentos por documentação."
     },
     {
       "id": "analise_socioeconomica",
@@ -245,10 +245,10 @@
       "rotulo": "Análise Socioeconômica dos discentes inscritos",
       "raia": "assistente_social",
       "posicao": { "x": 1030, "y": 914 },
-      "descricao": null,
-      "responsavel": null,
-      "base_legal": null,
-      "documentos": null,
+      "descricao": "A assistente social analisa a documentação e as informações socioeconômicas dos inscritos conforme a metodologia de avaliação definida no edital, para verificar os critérios de elegibilidade. As atas da CGAE analisadas na pesquisa registram dificuldades recorrentes nessa etapa, que é uma das mais sensíveis do processo: a tentativa de objetivar critérios de seleção nem sempre abarca a totalidade das situações vividas pelos estudantes.",
+      "responsavel": "Assistente Social",
+      "base_legal": "Editais do PAAE; Decreto nº 7.234/2010 (PNAES)",
+      "documentos": ["Documentação socioeconômica anexada na inscrição"],
       "prazo": null,
       "o_que_fazer": null
     },
@@ -258,8 +258,8 @@
       "rotulo": "Entrevista",
       "raia": "assistente_social",
       "posicao": { "x": 761, "y": 912 },
-      "descricao": null,
-      "responsavel": null,
+      "descricao": "Ponto de decisão: a assistente social avalia se é necessário convocar o discente para entrevista antes de concluir a análise socioeconômica.",
+      "responsavel": "Assistente Social",
       "base_legal": null,
       "documentos": null,
       "prazo": null,
@@ -283,12 +283,12 @@
       "rotulo": "Entrevista",
       "raia": "assistente_social",
       "posicao": { "x": 448, "y": 911 },
-      "descricao": null,
-      "responsavel": null,
+      "descricao": "Quando a documentação não é suficiente para concluir a análise, a assistente social realiza entrevista com o discente para compreender melhor sua situação socioeconômica antes de emitir o parecer.",
+      "responsavel": "Assistente Social",
       "base_legal": null,
       "documentos": null,
       "prazo": null,
-      "o_que_fazer": null
+      "o_que_fazer": "Se for convocado, compareça (ou participe on-line) na data marcada e leve os documentos solicitados. A entrevista existe para qualificar a análise da sua situação."
     },
     {
       "id": "pagamento_auxilios",
@@ -296,12 +296,12 @@
       "rotulo": "Pagamento dos auxílios",
       "raia": "financas",
       "posicao": { "x": 302, "y": 1094 },
-      "descricao": null,
-      "responsavel": null,
-      "base_legal": null,
+      "descricao": "O Departamento de Contabilidade, Orçamento e Finanças (DCOF) executa o pagamento dos auxílios aos discentes contemplados, como auxílio transporte, auxílio alimentação e auxílio aquisições, em pagamentos mensais ao longo do exercício. A pesquisa apontou que a agilidade dos pagamentos é percebida de forma apenas parcialmente positiva pela comunidade e que a execução depende do orçamento disponível, sujeito a contingenciamentos.",
+      "responsavel": "Departamento de Contabilidade, Orçamento e Finanças (DCOF)",
+      "base_legal": "Decreto nº 7.234/2010 (PNAES); Lei nº 14.914/2024",
       "documentos": null,
-      "prazo": null,
-      "o_que_fazer": null
+      "prazo": "Pagamentos mensais, conforme execução orçamentária",
+      "o_que_fazer": "Mantenha seus dados bancários atualizados no SUAP e acompanhe o cronograma de pagamentos divulgado pelo campus."
     },
     {
       "id": "fim",
@@ -309,7 +309,7 @@
       "rotulo": "Fim",
       "raia": "financas",
       "posicao": { "x": 1365, "y": 1105 },
-      "descricao": null,
+      "descricao": "Encerramento do ciclo do processo seletivo. O acompanhamento dos beneficiários continua pelo monitoramento até o fim da vigência do edital, quando um novo ciclo pode começar.",
       "responsavel": null,
       "base_legal": null,
       "documentos": null,
