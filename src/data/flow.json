@@ -322,7 +322,7 @@
     { "de": "nomeacao_comissao", "para": "elaboracao_edital", "tipo": "sequencia" },
     { "de": "elaboracao_edital", "para": "submissao_edital", "tipo": "sequencia" },
     { "de": "submissao_edital", "para": "gw_aprovado", "tipo": "sequencia" },
-    { "de": "gw_aprovado", "para": "elaboracao_edital", "rotulo": "Não", "tipo": "retorno" },
+    { "de": "gw_aprovado", "para": "elaboracao_edital", "rotulo": "Não", "tipo": "retorno", "saida": "left", "entrada": "t-bottom" },
     { "de": "gw_aprovado", "para": "publicacao_edital", "rotulo": "Sim", "tipo": "sequencia" },
     { "de": "publicacao_edital", "para": "divulgacao_edital_comunidade", "tipo": "sequencia" },
     { "de": "divulgacao_edital_comunidade", "para": "realizacao_inscricoes", "tipo": "sequencia" },

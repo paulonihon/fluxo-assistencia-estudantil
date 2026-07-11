@@ -31,6 +31,8 @@ export interface FlowConnection {
   para: string
   tipo: 'sequencia' | 'retorno'
   rotulo?: string
+  saida?: string
+  entrada?: string
 }
 
 export interface FlowData {
